@@ -214,7 +214,8 @@ p.day =
               alpha = .1) +
   scale_x_continuous(trans = 'log2', breaks = c(1,4,24)) +
   labs(title = "Daily temperature modulation", 
-       subtitle = "(Sp. Rich.: p = 0.14, 
+       subtitle = "n = 721'619;
+       Sp. Rich.: p = 0.14, 
        Hour: p < 0.001, 
        Sp. Rich. x Hour: p < 0.001)",
        x = 'Tree species richness x hour', 
@@ -300,7 +301,8 @@ p.month =
   labs(x = 'Tree species richness x month', 
        y = expression(paste('Monthly temperature [',
                             ~degree,'C]',sep='')), 
-       title = "Monthly temperature patterns") +
+       title = "Monthly temperature patterns",
+       subtitle = "n = 4'728") +
   facet_grid(cols = vars(group)) +
   theme_bw() + 
   theme(axis.ticks.y.right = element_line(color = 'blue'),

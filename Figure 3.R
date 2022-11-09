@@ -88,15 +88,15 @@ d.1$log.TreeDiv = log(d.1$TreeDiv, base = 2)
 #### >> 3.1. Monthly buffering drivers ####
 month.mod = 
   psem(
-    lme(phe.asyn ~ log.TreeDiv,
+    lme(phe.asyn ~ log.TreeDiv + avg.t,
         data = d.1, 
         random = ~ 1|site/plot,
         correlation=corCAR1(form = ~year.month)),
-    lme(phe.cwm ~ log.TreeDiv,
+    lme(phe.cwm ~ log.TreeDiv + avg.t,
         data = d.1, 
         random = ~ 1|site/plot,
         correlation=corCAR1(form = ~year.month)),
-    lme(volume ~ log.TreeDiv,
+    lme(volume ~ log.TreeDiv + avg.t,
         data = d.1, 
         random = ~ 1|site/plot, 
         correlation=corCAR1(form = ~year.month)),
@@ -118,13 +118,13 @@ mod.sem = function(m, d.1){
     filter(month == m)
   
   month.mod = psem(
-    lme(phe.asyn ~ log.TreeDiv,
+    lme(phe.asyn ~ log.TreeDiv + avg.t,
         data = dd, 
         random = ~ 1|site/plot),
-    lme(phe.cwm ~ log.TreeDiv,
+    lme(phe.cwm ~ log.TreeDiv + avg.t,
         random = ~ 1|site/plot,
         data = dd),
-    lme(volume ~ log.TreeDiv,
+    lme(volume ~ log.TreeDiv + avg.t,
         data = dd, 
         random = ~ 1|site/plot),
     lme(Buff ~ avg.t + (phe.cwm + phe.asyn + volume + log.TreeDiv),

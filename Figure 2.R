@@ -199,7 +199,8 @@ p.month =
                                 sep='')))) +
   labs(x = 'Tree species richness x month', 
        y = "Monthly temperature\nstability (1/CV)", 
-       title = "Monthly temperature buffering") +
+       title = "Monthly temperature buffering", 
+       subtitle = "n = 4'728") +
   facet_grid(cols = vars(group)) +
   theme_bw() + 
   theme(axis.ticks.y.right = element_line(color = 'blue'),
@@ -251,6 +252,7 @@ p.year =
   scale_color_gradient(low = 'red', high = 'blue') + 
   labs(x = 'Tree species richness', y = "Annual temperature\nstability (1/CV)", 
        title = "Yearly temperature buffering", 
+       subtitle = "n = 375",
        color = "SPEI 12") +
   lims(y = c(1.7,2.3)) + 
   theme_bw() + 
