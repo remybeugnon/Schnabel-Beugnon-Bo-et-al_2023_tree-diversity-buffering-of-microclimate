@@ -57,7 +57,7 @@ df.macro.spei = read.csv("spei_1901_2021.csv") %>%
   select(-date)
 
 d.1 = df.clim %>% 
-  filter(TreeDiv > 0 & year != 2014) %>%
+  filter(TreeDiv > 0 & year %in% 2015:2020) %>%
   group_by(site, plot, year, month) %>%
   summarise(Buff = mean(T, na.rm = T)/ sd(T, na.rm = T) , 
             TreeDiv = mean(TreeDiv)) %>%

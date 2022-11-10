@@ -31,7 +31,7 @@ invisible(lapply(libs, library, character.only = T))
 load("workspace_data.RData")
 
 df.design = df.clim.month.sum %>%
-  filter(TreeDiv > 0) %>% 
+  filter(TreeDiv > 0 & year %in% 2015:2020) %>% 
   mutate(year.month = year + (month -1 )/12) %>%
   mutate(month.f = factor(month)) %>%
   select(site, plot, 
